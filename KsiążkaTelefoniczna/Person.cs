@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KsiążkaTelefoniczna
+﻿namespace KsiążkaTelefoniczna
 {
     public class Person
     {
@@ -19,17 +13,7 @@ namespace KsiążkaTelefoniczna
         public int Number
         {
             get { return number; }
-            set 
-            {
-                if (value.ToString().Length == 9 || value.ToString().Length == 11)
-                {
-                number = value; 
-                }
-                else
-                {
-                Console.WriteLine("invalid value");
-                }
-            }
+            set { number = value; }
         }
 
         public Person(string name, int number)
@@ -37,6 +21,6 @@ namespace KsiążkaTelefoniczna
             Name = name;
             Number = number;
         }
-        
+
     }
 }

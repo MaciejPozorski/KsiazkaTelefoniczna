@@ -2,30 +2,10 @@
 
 
 string userInput;
-string userSearchInput;
-static List<Person> Getpeople()
-{
-    List<Person> people = new List<Person>()
-    {
-        new Person("Maciej", 123456789),
-        new Person("Jan", 987654321),
-        new Person("Adam", 789456123),
-        new Person("zbychu", 481234567)
-    };
-    return people;
-}
 
-List<Person> people = Getpeople();
+PhoneBook phoneBook = new PhoneBook();
+phoneBook.Load();
 
-
-  void ShowAll()
-  {
-    foreach (Person person in people)
-    {
-        Console.WriteLine($"Name: {person.Name}, number: {person.Number}");
-        
-    }
-  }
 
 do
 {
@@ -44,54 +24,17 @@ do
     {
         case "1":
             {
-                Console.WriteLine("Podaj imie: ");
-                string name = Console.ReadLine();
-                Console.WriteLine("Podaj numer");
-                int nr = int.Parse(Console.ReadLine()); 
-                people.Add(new Person(name, nr));
-                Console.WriteLine("ok");
-                Console.ReadLine();
+                phoneBook.AddPerson();
                 break;
             }
         case "2":
             {
-                Console.WriteLine("Podaj szczegóły: ");
-                userSearchInput = Console.ReadLine();
-                if (int.TryParse(userSearchInput, out int x))
-                {
-
-                    Person wantedPerson = people.FirstOrDefault(p => p.Number == x);
-                    if (wantedPerson != null)
-                    {
-                        Console.WriteLine($"Name: {wantedPerson.Name}, number: {wantedPerson.Number}");
-                        Console.ReadLine ();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Person not found");
-                        Console.ReadLine ();
-                    }
-                }
-                else
-                {
-
-                    Person wantedPerson = people.FirstOrDefault(p => p.Name == userSearchInput);
-                    if (wantedPerson != null)
-                    {
-                        Console.WriteLine($"Name: {wantedPerson.Name}, number: {wantedPerson.Number}");
-                        Console.ReadLine();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Person not found");
-                        Console.ReadLine();
-                    }
-                }
+                phoneBook.SearchPerson();
                 break;
             }
         case "3":
             {
-                ShowAll();
+                phoneBook.DisplayContacts();
                 Console.WriteLine("Wciśnij dowolny klawisz aby wyjść");
                 Console.ReadLine();
                 break;
