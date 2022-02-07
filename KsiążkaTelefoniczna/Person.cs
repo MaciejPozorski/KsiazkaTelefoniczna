@@ -3,20 +3,20 @@
     public class Person
     {
         private string name;
-        private int number;
+        private long number;
 
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
-        public int Number
+        public long Number
         {
             get { return number; }
             set { number = value; }
         }
 
-        public Person(string name, int number)
+        public Person(string name, long number)
         {
             Name = name;
             Number = number;

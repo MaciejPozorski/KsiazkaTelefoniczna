@@ -24,7 +24,7 @@
             Console.WriteLine("Podaj imie: ");
             string name = Console.ReadLine();
             Console.WriteLine("Podaj numer");
-            int nr = int.Parse(Console.ReadLine());
+            long nr = long.Parse(Console.ReadLine());
             Persons.Add(new Person(name, nr));
             Console.ReadLine();
         }
@@ -32,7 +32,7 @@
         {
             Console.WriteLine("Podaj szczegóły: ");
             string userSearchInput = Console.ReadLine();
-            if (int.TryParse(userSearchInput, out int number))
+            if (long.TryParse(userSearchInput, out long number))
             {
                 var wantedPerson = Persons.Where(p => p.Number.ToString().Contains(number.ToString())).ToList();
                 if (wantedPerson != null)
