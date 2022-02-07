@@ -59,12 +59,8 @@ do
                 userSearchInput = Console.ReadLine();
                 if (int.TryParse(userSearchInput, out int x))
                 {
-                    bool wanted (Person person)
-                    {
-                        return person.Number == x;
-                    }
 
-                    Person wantedPerson = people.FirstOrDefault(wanted);
+                    Person wantedPerson = people.FirstOrDefault(p => p.Number == x);
                     if (wantedPerson != null)
                     {
                         Console.WriteLine($"Name: {wantedPerson.Name}, number: {wantedPerson.Number}");
@@ -78,12 +74,8 @@ do
                 }
                 else
                 {
-                    bool wanted(Person person)
-                    {
-                        return person.Name == userSearchInput;
-                    }
 
-                    Person wantedPerson = people.FirstOrDefault(wanted);
+                    Person wantedPerson = people.FirstOrDefault(p => p.Name == userSearchInput);
                     if (wantedPerson != null)
                     {
                         Console.WriteLine($"Name: {wantedPerson.Name}, number: {wantedPerson.Number}");
